@@ -45,6 +45,9 @@ cursor.execute('CREATE TABLE PLAYERS(FIRST_NAME VARCHAR(20) NOT NULL,'
                'FOREIGN KEY(AGENT_NAME) REFERENCES AGENTS(NAME),'
                'FOREIGN KEY(NATIONALITY) REFERENCES NATIONALS(NATION))')
 '''
+#Adduser
+cursor.execute("CREATE TABLE IF NOT EXISTS `user` (username TEXT NOT NULL, password TEXT)")
+
 
 
 # insering into club
@@ -1288,6 +1291,10 @@ def mainPage1():
     mWindow.mainloop()
 
 
+
+
+
+
 def login():
     root = Toplevel()
     root.title("Log In")
@@ -1300,7 +1307,7 @@ def login():
             root.destroy()
             frontpage.destroy()
             mainPage()
-        elif E1.get() == 'fan' and E2.get() == 'fan':
+        elif E1.get() == 'fan' and E2.get() == 'user':
             messagebox.showinfo("Success", "Logged in")
             root.destroy()
             frontpage.destroy()
